@@ -1,0 +1,135 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
+}
+
+#loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #111;
+    color: #fff;
+    background: url('vendetta.jpg') center/cover;
+    background-size: contain;
+}
+
+#loading-screen h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+#loading-screen button {
+    padding: 10px;
+    font-size: 2em;
+    background-color: #3a075f65;
+    color: #fff;
+    border-radius: 3cm;
+    cursor: pointer;
+}
+
+
+.loading_title:hover {
+    color: #8a2be2; /* Cambia el color al pasar el ratón */
+    filter: brightness(1.4);
+    transition: color 0.3s;
+}
+
+
+#loading-screen button:hover {
+    background-color: rgb(145, 21, 202);
+    filter: brightness(1.9); /* Cambia el brillo al pasar el ratón */
+    transition: filter 0.9s;
+    color: #aea4b4;
+    font-size: 37px;
+}
+
+#content {
+    display: none;
+}
+
+.main-title {
+    font-size: 3.2em;
+    
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background-image: url(music.jpg);
+    background-size: 1100px;
+}
+
+nav {
+    background-color: #333;
+    font-size: larger;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fcf6f6;
+    transition: color 0.3s;
+}
+
+.nav-item:hover a {
+    color: #e22be2;
+    
+}
+
+
+.cortes-container {
+    display: flex;
+    margin: 10px;
+    
+}
+
+.corte {
+    flex: 1;
+    padding: 90px;
+    margin: 5px;
+    background: url('VENDETTA_2.jpg') center/cover; 
+    color: #f7f5f8;
+    
+}
+
+.corte a {
+    font-size: 20px;
+    color: #fcf6f6;
+    
+}
+
+section {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.corte:hover {
+    filter: brightness(1.9); /* Cambia el brillo al pasar el ratón */
+    transition: filter 0.5s;
+    color: #8a2be2;
+}

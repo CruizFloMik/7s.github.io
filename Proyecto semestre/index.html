@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página de Lenguajes de Programación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="loading-screen">
+    <h1 class="loading_title">EL Casillero de CR</h1>
+    <button onclick="loadPage()">INGRESAR</button>
+</div>
+
+<div id="content" style="display:none;">
+
+<header>
+    <h1 class="main-title">El casillero de CR</h1>
+</header>
+
+<nav>
+    <ul>
+        <li class="nav-item"><a href="#corte1">Perfil</a></li>
+        <li class="nav-item"><a href="https://github.com/tuusuario" target="_blank">GitHub</a></li>
+    </ul>
+</nav>
+
+<div class="cortes-container">
+    <section id="corte1" class="corte">
+        <a href="Primer_Corte.html" target="_blank">Corte 1</a>
+        <p>Para más detalles, visita <a href="https://tusitio.com/corte1" target="_blank">este enlace</a>.</p>
+    </section>
+
+    <section id="corte2" class="corte">
+        <a href="Segundo_Corte.html" target="_blank">Corte 2</a>
+        <p>Para más detalles, visita <a href="https://tusitio.com/corte2" target="_blank">este enlace</a>.</p>
+    </section>
+
+    <section id="corte3" class="corte">
+        <a href="Tercer_Corte.html" target="_blank">Corte 3</a>
+        <p>Para más detalles, visita <a href="https://tusitio.com/corte3" target="_blank">este enlace</a>.</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2023 CAMILO RUIZ</p>
+</footer>
+
+</div>
+
+<script>
+    function loadPage() {
+        document.getElementById('loading-screen').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
