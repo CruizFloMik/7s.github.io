@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer Corte</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="Primer_loading">
+    <h1>El Casillero de CR</h1>
+    
+    <button onclick="showPDF()">Mostrar Mapa Mental</button>
+    <button onclick="showPythonCode()">Mostrar Código Python</button>
+
+    <div id="pdfViewer" style="display: none;">
+        <iframe id="pdfFrame" src="Mapa_Mental_Cruiz.pdf" width="90%" height="600px"></iframe>
+    </div>
+    <textarea id="pythonCode" readonly></textarea>
+</div>
+
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<script>
+    function showPDF() {
+        document.getElementById("pdfViewer").style.display = "block";
+        document.getElementById("pythonCode").style.display = "none";
+    }
+
+    function showPythonCode() {
+        document.getElementById("pdfViewer").style.display = "none";
+        document.getElementById("pythonCode").style.display = "block";
+
+        // Cargar y mostrar el código de Python
+        const pythonCode = `
+# CODIGO USANDO MAP Y FILTER VISTOS EN EL PRIMER CORTE
+def convertirAFahrenheit(temperatura):
+    return temperatura * 9 / 5 + 32
+
+def obtenerTemperaturasMaximas(datos_dia):
+    return datos_dia["maxima"]
+
+# Lista original de temperaturas en grados Celsius
+listaTemperaturas = [
+    {"fecha": "2023-11-21", "maxima": 25},
+    {"fecha": "2023-11-22", "maxima": 20},
+    {"fecha": "2023-11-23", "maxima": 27}
+]
+
+# Utilizando map para convertir las temperaturas de Celsius a Fahrenheit
+listaTemperaturasFahrenheit = list(map(lambda x: convertirAFahrenheit(x["maxima"]), listaTemperaturas))
+
+# Utilizando filter para obtener las temperaturas máximas del día
+listaTemperaturasMax = list(map(obtenerTemperaturasMaximas, listaTemperaturas))
+
+print("Temperaturas en Fahrenheit:", listaTemperaturasFahrenheit)
+print("Temperaturas máximas del día:", listaTemperaturasMax)
+`;
+
+        document.getElementById("pythonCode").value = pythonCode;
+    }
+</script>
+
+</body>
+</html>
