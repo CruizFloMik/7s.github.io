@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -26,19 +27,17 @@ body {
 #loading-screen button {
     padding: 10px;
     font-size: 2em;
-    background-color: #3a075f65;
+    background-color: #3a075f62;
     color: #fff;
     border-radius: 3cm;
     cursor: pointer;
 }
-
 
 .loading_title:hover {
     color: #8a2be2; /* Cambia el color al pasar el ratón */
     filter: brightness(1.4);
     transition: color 0.3s;
 }
-
 
 #loading-screen button:hover {
     background-color: rgb(145, 21, 202);
@@ -54,7 +53,7 @@ body {
 
 .main-title {
     font-size: 3.2em;
-    
+    color: #e2cfe7;
 }
 
 header {
@@ -90,29 +89,24 @@ nav a {
 
 .nav-item:hover a {
     color: #e22be2;
-    
 }
-
 
 .cortes-container {
     display: flex;
     margin: 10px;
-    
 }
 
 .corte {
     flex: 1;
     padding: 90px;
     margin: 5px;
-    background: url('VENDETTA_2.jpg') center/cover; 
+    background: url('VENDETTA_2.jpg') center/cover;
     color: #f7f5f8;
-    
 }
 
 .corte a {
     font-size: 20px;
     color: #fcf6f6;
-    
 }
 
 section {
@@ -132,4 +126,158 @@ footer {
     filter: brightness(1.9); /* Cambia el brillo al pasar el ratón */
     transition: filter 0.5s;
     color: #8a2be2;
+}
+
+/* PRIMER CORTE  PRIMER CORTE PRIMER CORTE PRIMER CORTE PRIMER CORTE   */
+
+.Primer_loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+    height: 100vh;
+    background: url('VENDETTA_2.jpg') center/cover; 
+    color: #ab19cf;
+}
+
+/* Estilos para los botones */
+button {
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: rgba(162, 157, 167, 0.897);
+}
+
+button:hover {
+    background-color: #892be2;
+    color: #fff;
+    filter: brightness(1.4);
+    transition: color 0.5s;
+}
+
+/* Estilos específicos para los botones de PDF y código Python */
+#pdfViewer button, #pythonCode button {
+    margin-top: 200px; /* Ajusta el espacio entre los botones y el contenido */
+}
+
+/* Estilos para centrar y darle estilo al PDF */
+#pdfViewer {
+    display: none;
+    text-align: center; /* Centra el contenido */
+}
+
+#pdfFrame {
+    width: 80%;
+    height: 70vh;
+    margin: 20px auto; /* Centra el iframe */
+    border: 5px solid #8a2be2; /* Borde con color del botón */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+/* Estilos para el código Python */
+#pythonCode {
+    display: none;
+    width: 80%;
+    height: 70vh;
+    margin: auto;
+    resize: none;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+#pythonCode:hover {
+    background-color: rgba(154, 115, 190, 0.315);
+    color: #f7f5f8;
+}
+
+
+/* PERFIL PERFIL PERFIL*/
+cuerpo {
+    margin: 0;
+}
+
+.contenedor {
+    background-image: url('colors.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfil-container {
+    text-align: center;
+}
+
+.perfil-foto {
+    border-radius: 40%;
+    width: 150px;
+    border: 10px solid #fff; /* Borde blanco */
+    transition: border-color 0.5s, transform 0.5s; /* Transiciones para el efecto chispeante */
+}
+
+.perfil-foto:hover {
+    border-color: #b700ff; /* Cambiar a color dorado al pasar el ratón */
+    transform: rotate(5deg); /* Girar la foto al pasar el ratón */
+}
+
+.perfil-nombre {
+    margin-top: 20px;
+    font-size: 4em;
+    color: #dd1212;
+    transition: color 0.3s; /* Transición de color para el efecto hover */
+    filter: brightness(1.4);
+    transition: color 0.5s;
+    
+}
+
+.perfil-nombre:hover {
+    color: #e2cfe7; /* Cambiar a color dorado al pasar el ratón */
+    transition: background-color 0.3s, color 0.3s;
+    background-color: rgba(241, 10, 10, 0.897);
+    border-radius: 20px ;
+    padding-left:  20px;
+    padding-right: 20px;
+    filter: brightness(1.4);
+    transition: color 0.5s;
+}
+
+/* Resto del estilo permanece igual */
+
+
+.perfil-datos {
+    margin-top: 20px;
+}
+
+.perfil-habilidades {
+    margin-top: 30px;
+}
+
+.perfil-habilidades h2 {
+    border-bottom: 2px solid #d40e0e; /* Línea blanca bajo el título */
+    padding-bottom: 5px;
+}
+
+.perfil-habilidades ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.perfil-habilidades li {
+    margin-top: 10px;
 }
