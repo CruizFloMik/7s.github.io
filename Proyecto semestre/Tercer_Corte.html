@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tercer Corte</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .pythonCode {
+            display: none;
+            width: 80%;
+            height: 70vh;
+            margin: auto;
+            resize: none;
+            padding: 10px;
+            margin-top: 15px;
+        }
+        .pythonCode:hover {
+            background-color: rgba(154, 115, 190, 0.315);
+            color: #f7f5f8;
+        }
+    </style>
+</head>
+<body>
+    <div id="Primer_loading">
+        <h1>El Casillero de CR</h1>
+        
+        <button onclick="showPythonCode1()">Mostrar Codigo Python 1</button>
+        <button onclick="showPythonCode2()">Mostrar Código Python 2</button>
+    
+        <textarea id="pythonCode1" class="pythonCode" readonly></textarea>
+        <textarea id="pythonCode2" class="pythonCode" readonly></textarea>
+    </div>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script>    
+        function showPythonCode1() {
+            document.getElementById("pythonCode1").style.display = "block";
+            document.getElementById("pythonCode2").style.display = "none";
+
+            // Cargar y mostrar el código de Python
+            const pythonCode = `
+# El siguiente codigo es un algoritmo de programación concurrente para simular
+el estudio de tres tareas. El algoritmo utiliza tres hilos, 
+uno para cada tarea. Cada hilo ejecuta el método run() de la clase EstudioTask, 
+que simula el proceso de estudio.
+Se crea una lista de objetos en estudiotask que viene representando las 3 tareas de estudio
+, despues se crean los hilos para cada objeto y se inicia el hilo principal
+lo que hace este algoritmo es como un planificador de tareas
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainClass2 {
+
+    public static void main(String[] args) {
+        // Crear una lista de tareas de estudio
+        List<EstudioTask> tareasEstudio = new ArrayList<>();
+        tareasEstudio.add(new EstudioTask("Revisar apuntes"));
+        tareasEstudio.add(new EstudioTask("Resolver ejercicios"));
+        tareasEstudio.add(new EstudioTask("Repasar conceptos"));
+
+        // Crear 3 hilos que ejecuten las tareas de estudio
+        Thread[] hilosEstudio = new Thread[3];
+        for (int i = 0; i < hilosEstudio.length; i++) {
+            final int tareaIndex = i; // Identificador para el hilo actual
+            hilosEstudio[i] = new Thread(() -> {
+                // Obtener y ejecutar la tarea asignada al hilo
+                EstudioTask tarea = tareasEstudio.remove(0);
+                System.out.println("¡Inicio de estudio! Preparándose para: " + tarea.getNombre() +
+                        " en el hilo " + tareaIndex);
+                tarea.run();
+                System.out.println("¡Fin de estudio! ¡Se completó: " + tarea.getNombre() +
+                        " en el hilo " + tareaIndex);
+            });
+            hilosEstudio[i].start(); // Iniciar cada hilo de estudio
+        }
+
+        // Esperar a que todos los hilos de estudio terminen
+        for (Thread hilo : hilosEstudio) {
+            try {
+                hilo.join(); // Esperar a que cada hilo de estudio termine antes de continuar
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Imprimir un mensaje de finalización
+        System.out.println("¡Buen trabajo! Todas las tareas de estudio han sido completadas.");
+    }
+}
+
+class EstudioTask {
+
+    private String nombre;
+
+    public EstudioTask(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void run() {
+        System.out.println("¡En proceso de estudio! Realizando tarea: " + nombre);
+        try {
+            // Simular el tiempo de estudio
+            for (int i = 0; i < 3; i++) {
+                Thread.sleep(500); // Dormir durante 500 milisegundos
+                System.out.println("Progreso de " + nombre + " en el hilo actual: " + (i + 1) + "/3");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+            `;
+    
+            document.getElementById("pythonCode1").value = pythonCode;
+        }
+
+        function showPythonCode2() {
+            document.getElementById("pythonCode2").style.display = "block";
+            document.getElementById("pythonCode1").style.display = "none";
+    
+            // Cargar y mostrar el código de Python
+            const pythonCode = `
+# En este codigo usamos hilos y sincronizacion paraun  planificador tareas simulandoun ambiente des estudio
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainClass {
+
+    public static void main(String[] args) {
+        // Crear una lista de tareas
+        List<Task> tareas = new ArrayList<>();
+        tareas.add(new Task("Descargar archivos"));
+        tareas.add(new Task("Procesar archivos"));
+        tareas.add(new Task("Subir archivos"));
+
+        // Crear 3 hilos que ejecuten las tareas
+        Thread[] hilosTareas = new Thread[3];
+        for (int i = 0; i < hilosTareas.length; i++) {
+            final int tareaIndex = i; // Variable final para el lambda
+            hilosTareas[i] = new Thread(() -> {
+                Task tarea = tareas.remove(0);
+                System.out.println("Iniciando tarea: " + tarea.getNombre() + " en el hilo " + tareaIndex);
+                tarea.run();
+                System.out.println("Tarea completada: " + tarea.getNombre() + " en el hilo " + tareaIndex);
+            });
+            hilosTareas[i].start();
+        }
+
+        // Esperar a que todos los hilos terminen
+        for (Thread hilo : hilosTareas) {
+            try {
+                hilo.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Imprimir un mensaje de finalización
+        System.out.println("Todas las tareas completadas");
+    }
+}
+
+class Task {
+
+    private String nombre;
+
+    public Task(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void run() {
+        System.out.println("Ejecutando tarea: " + nombre);
+        try {
+            // Simulando el progreso de la tarea
+            for (int i = 0; i < 5; i++) {
+                Thread.sleep(200); // Dormir durante 200 milisegundos
+                System.out.println("Progreso de " + nombre + " en el hilo actual: " + (i + 1) + "/5");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+})
+
+            `;
+    
+            document.getElementById("pythonCode2").value = pythonCode;
+        }    
+    </script>
+</body>
+</html>
