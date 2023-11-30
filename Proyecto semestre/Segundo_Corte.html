@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segundo Corte</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .pythonCode {
+            display: none;
+            width: 80%;
+            height: 70vh;
+            margin: auto;
+            resize: none;
+            padding: 10px;
+            margin-top: 15px;
+        }
+        .pythonCode:hover {
+            background-color: rgba(154, 115, 190, 0.315);
+            color: #f7f5f8;
+        }
+    </style>
+</head>
+<body>
+    <div id="Primer_loading">
+        <h1>El Casillero de CR</h1>
+        
+        <button onclick="showPythonCode1()">Mostrar Codigo Python 1</button>
+        <button onclick="showPythonCode2()">Mostrar Código Python 2</button>
+    
+        <textarea id="pythonCode1" class="pythonCode" readonly></textarea>
+        <textarea id="pythonCode2" class="pythonCode" readonly></textarea>
+    </div>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script>    
+        function showPythonCode1() {
+            document.getElementById("pythonCode1").style.display = "block";
+            document.getElementById("pythonCode2").style.display = "none";
+
+            // Cargar y mostrar el código de Python
+            const pythonCode = `
+# # Ejemplo de Singleton para administrar una cola de impresión
+
+class ColaImpresión:
+
+    _instance_ = None
+
+    def __init__(this):
+        # Inicializar la cola de impresión
+        this.cola = []
+
+    # Métodos de instancia
+    def agregarDocumento(this, documento):
+        this.cola.append(documento)
+
+    def imprimirDocumento(this):
+        documento = this.cola.pop(0)
+    # Imprimir el documento
+        print(documento)
+
+
+    # Método de clase para crear la instancia del singleton
+    @classmethod
+    def getInstance(this):
+        if this._instance_ is None:
+            this._instance_ = this()
+        return this._instance_
+
+# Ejemplo de uso del Singleton
+
+colaImpresión = ColaImpresión.getInstance()
+
+colaImpresión.agregarDocumento("Documento 1")
+colaImpresión.agregarDocumento("Documento 2")
+colaImpresión.agregarDocumento("Documento 3")
+
+colaImpresión.imprimirDocumento()
+colaImpresión.imprimirDocumento()
+colaImpresión.imprimirDocumento()
+
+            `;
+    
+            document.getElementById("pythonCode1").value = pythonCode;
+        }
+
+        function showPythonCode2() {
+            document.getElementById("pythonCode2").style.display = "block";
+            document.getElementById("pythonCode1").style.display = "none";
+    
+            // Cargar y mostrar el código de Python
+            const pythonCode = `
+# # Clase que publica mensajes a suscriptores
+class Notificador:
+
+    # Inicializar una lista de suscriptores
+    def __init__(self):
+        self._suscriptores = []
+
+    # Agregar un suscriptor a la lista
+    def agregar_suscriptor(self, suscriptor):
+        self._suscriptores.append(suscriptor)
+
+    # Eliminar un suscriptor de la lista
+    def eliminar_suscriptor(self, suscriptor):
+        self._suscriptores.remove(suscriptor)
+
+    # Notificar a todos los suscriptores sobre un mensaje
+    def notificar_suscriptores(self, mensaje):
+        for suscriptor in self._suscriptores:
+            suscriptor.actualizar(mensaje)
+
+
+# Clase base para suscriptores
+class Suscriptor:
+
+    # Implementar el método actualizar para manejar mensajes
+    def actualizar(self, mensaje):
+        pass
+
+
+# Clase de suscriptor concreta
+class SuscriptorNotificaciones(Suscriptor):
+
+    def actualizar(self, mensaje):
+        print(f"Suscriptor de notificaciones recibió mensaje: {mensaje}")
+
+
+# Clase de suscriptor concreta
+class SuscriptorAlertas(Suscriptor):
+
+    def actualizar(self, mensaje):
+        print(f"Suscriptor de alertas recibió mensaje: {mensaje}")
+
+
+# Programa principal
+if __name__ == "__main__":
+    # Crear una instancia del notificador
+    notificador = Notificador()
+
+    # Crear instancias de suscriptores
+    suscriptor_notificaciones = SuscriptorNotificaciones()
+    suscriptor_alertas = SuscriptorAlertas()
+
+    # Agregar suscriptores al notificador
+    notificador.agregar_suscriptor(suscriptor_notificaciones)
+    notificador.agregar_suscriptor(suscriptor_alertas)
+
+    # Notificar a los suscriptores sobre un mensaje
+    notificador.notificar_suscriptores("Notificación: El clima está cambiando")
+    notificador.notificar_suscriptores("Alerta: Se detectó un incendio")
+
+            `;
+    
+            document.getElementById("pythonCode2").value = pythonCode;
+        }    
+    </script>
+</body>
+</html>
